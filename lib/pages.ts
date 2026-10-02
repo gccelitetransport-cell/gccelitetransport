@@ -13,7 +13,6 @@ export const PAGES: PageDef[] = [
   { slug: "border-guides", title: "GCC Border Crossing Guides", description: "Practical points to check before a GCC border crossing.", intro: "Border requirements can vary by country, vehicle type, nationality and travel purpose. Guides will cover the practical details passengers should check before booking." },
   { slug: "about", title: "About GCC Elite Transport", description: "A regional GCC cross-border transportation company.", intro: "GCC Elite Transport coordinates private road transportation between GCC countries, planning each journey around its specific route." },
   { slug: "contact", title: "Contact", description: "Contact GCC Elite Transport on WhatsApp or phone.", intro: "Message us on WhatsApp or call to request a quote. Share your pickup location, destination, date and passenger count." },
-  country("bahrain", "Bahrain", "Private road transfers connecting Bahrain with major GCC destinations, including journeys via the King Fahd Causeway where applicable."),
   country("uae", "United Arab Emirates", "Pick-ups across the Emirates for road journeys toward Oman and, where the route allows, Saudi Arabia and other GCC markets."),
   country("qatar", "Qatar", "Private transfers between Doha and the Saudi land border, with onward arrangements confirmed for each journey."),
   country("kuwait", "Kuwait", "Road transfers from Kuwait City and nearby areas toward Saudi Arabia and onward GCC destinations, planned per route."),
