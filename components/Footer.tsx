@@ -3,7 +3,7 @@ import { SITE } from "@/lib/site";
 import { Logo } from "./Logo";
 
 const cols = [
-  { t: "Services", l: [["Cross-Border Transfers", "/cross-border-transfers/"], ["Routes", "/routes/"], ["Fleet", "/fleet/"], ["Corporate Travel", "/corporate/"], ["Airport Transfers", "/airport-transfers/"], ["Border Guides", "/border-guides/"]] },
+  { t: "Services", l: [["Cross-Border Transfers", "/cross-border-transfers/"], ["Routes", "/routes/"], ["Fleet", "/fleet/"], ["Corporate Travel", "/corporate/"], ["Airport Transfers", "/airport-transfers/"], ["Border Guides", "/border-guides/"], ["Travel Guides", "/travel-guides/"]] },
   { t: "Company", l: [["About", "/about/"], ["Contact", "/contact/"], ["FAQ", "/#faq"]] },
   { t: "Countries", l: [["Saudi Arabia", "/saudi-arabia/"], ["Bahrain", "/bahrain/"], ["UAE", "/uae/"], ["Qatar", "/qatar/"], ["Kuwait", "/kuwait/"], ["Oman", "/oman/"], ["Jordan (regional)", "/jordan/"]] },
   { t: "Legal", l: [["Privacy Policy", "/privacy-policy/"], ["Terms & Conditions", "/terms/"], ["Cookie Policy", "/cookie-policy/"]] },

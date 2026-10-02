@@ -32,6 +32,19 @@ const CARDS = [
   ["route-dammam-to-manama", "SAUDI ARABIA → BAHRAIN", "Dammam to Manama", "Across the King Fahd Causeway"],
   ["route-muscat-to-dubai", "OMAN → UAE", "Muscat to Dubai", "Across the Oman–UAE border"],
   ["route-amman-to-riyadh", "JORDAN → SAUDI ARABIA", "Amman to Riyadh", "A regional cross-border road journey"],
+  ["guide-saudi-bahrain", "BORDER GUIDE · SAUDI ARABIA ↔ BAHRAIN", "King Fahd Causeway", "Documents, insurance and the island checkpoint"],
+  ["guide-qatar-saudi", "BORDER GUIDE · QATAR ↔ SAUDI ARABIA", "Abu Samra / Salwa", "Qatar's only land border"],
+  ["guide-uae-saudi", "BORDER GUIDE · UAE ↔ SAUDI ARABIA", "Al Ghuwaifat / Al Batha", "The UAE–Saudi land crossing"],
+  ["guide-oman-uae", "BORDER GUIDE · OMAN ↔ UAE", "Oman–UAE Border Crossings", "Hatta, Al Ain, Khatmat Malaha, Musandam"],
+  ["guide-kuwait-saudi", "BORDER GUIDE · KUWAIT ↔ SAUDI ARABIA", "Nuwaiseeb–Khafji and Salmi", "The two Kuwait–Saudi crossings"],
+  ["guide-oman-saudi", "BORDER GUIDE · OMAN ↔ SAUDI ARABIA", "The Empty Quarter Crossing", "Al-Rub' Al-Khali: Ibri to Al-Ahsa"],
+  ["guide-jordan-saudi", "BORDER GUIDE · JORDAN ↔ SAUDI ARABIA", "Al-Omari, Mudawara, Al-Durra", "Three crossings, one border"],
+  ["travel-guides", "TRAVEL GUIDES", "GCC Road Travel Guides", "Answers before you cross a border"],
+  ["article-saudi-residents-crossing-by-road", "TRAVEL GUIDE", "Saudi Residents Crossing a GCC Border by Road", "Exit/re-entry, residency and entry rules"],
+  ["article-gcc-citizens-residents-visitors-land-borders", "TRAVEL GUIDE", "Citizens, Residents and Visitors at GCC Borders", "Who you are decides what you carry"],
+  ["article-children-across-gcc-land-borders", "TRAVEL GUIDE", "Traveling With Children Across GCC Borders", "Documents, consent, seats and timing"],
+  ["article-driving-your-own-car-vs-private-transfer", "TRAVEL GUIDE", "Drive Yourself or Book a Private Transfer?", "Crossing a GCC border by road"],
+  ["article-planning-a-multi-country-gcc-road-trip", "TRAVEL GUIDE", "Planning a Multi-Country GCC Road Trip", "Borders, visas, order and buffers"],
 ];
 
 const html = (eyebrow, title, sub) => `<!doctype html><html><head><meta charset="utf-8">

@@ -71,7 +71,7 @@ function renderSection(s: Section, r: Route, i: number) {
       const rel = r.related.map((s) => getRoute(s)).filter(Boolean) as Route[];
       return wrap("related", (<><h2 className="text-2xl font-bold text-navy">Related Routes and Guides</h2><ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {rel.map((x) => (<li key={x.slug}><Link href={`/routes/${x.slug}/`} className="block rounded-xl border border-slate-200 bg-white p-4 font-semibold text-navy hover:border-gold">{x.from.city} → {x.to.city}</Link></li>))}
-        <li><Link href={r.guideHref} className="block rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-navy hover:border-gold">Border information for this corridor</Link></li>
+        <li><Link href={r.guideHref} className="block rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-navy hover:border-gold">Border guide for this crossing</Link></li>
         <li><Link href={HREF[r.from.id]} className="block rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-navy hover:border-gold">{r.from.country} cross-border transportation</Link></li>
         <li><Link href={HREF[r.to.id]} className="block rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-navy hover:border-gold">{r.to.country} cross-border transportation</Link></li>
         <li><Link href="/cross-border-transfers/" className="block rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-navy hover:border-gold">GCC cross-border transfers</Link></li>

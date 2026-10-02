@@ -102,7 +102,7 @@ export const ROUTES: Route[] = [
     ],
     related: ["riyadh-to-dubai", "makkah-to-manama"], sources: [S.saMoi, S.saVisa, S.aeRoad, S.aeIcp],
     order: ["summary", "whyIntl", "overview", "timeline", "usecases", "border", "docs", "driver", "vehicles", "luggage", "return", "tips", "multi", "faq", "sources", "related"],
-    tags: ["Family", "Religious", "Group", "Business"], guideHref: "/border-guides/",
+    tags: ["Family", "Religious", "Group", "Business"], guideHref: "/border-guides/uae-saudi/",
   },
 
   /* ---------------- Makkah → Manama ---------------- */
@@ -160,7 +160,7 @@ export const ROUTES: Route[] = [
     ],
     related: ["dammam-to-manama", "makkah-to-dubai"], sources: [S.saMoi, S.bhMtt, S.bhNpra, S.gcc],
     order: ["summary", "whyIntl", "overview", "timeline", "border", "docs", "driver", "usecases", "vehicles", "luggage", "return", "tips", "faq", "sources", "related"],
-    tags: ["Family", "Religious", "Business", "Group"], guideHref: "/bahrain/",
+    tags: ["Family", "Religious", "Business", "Group"], guideHref: "/border-guides/saudi-bahrain/",
   },
 
   /* ---------------- Riyadh → Dubai ---------------- */
@@ -219,7 +219,7 @@ export const ROUTES: Route[] = [
     ],
     related: ["makkah-to-dubai", "muscat-to-dubai"], sources: [S.saMoi, S.saVisa, S.aeRoad, S.aeIcp],
     order: ["summary", "usecases", "whyIntl", "overview", "vehicles", "timeline", "border", "docs", "driver", "luggage", "return", "tips", "multi", "faq", "sources", "related"],
-    tags: ["Business", "Group", "Family"], guideHref: "/border-guides/",
+    tags: ["Business", "Group", "Family"], guideHref: "/border-guides/uae-saudi/",
   },
 
   /* ---------------- Dammam → Manama ---------------- */
@@ -276,7 +276,7 @@ export const ROUTES: Route[] = [
     ],
     related: ["makkah-to-manama", "riyadh-to-dubai"], sources: [S.saMoi, S.bhMtt, S.bhNpra],
     order: ["summary", "whyIntl", "overview", "border", "timeline", "docs", "driver", "return", "usecases", "vehicles", "luggage", "tips", "faq", "sources", "related"],
-    tags: ["Business", "Family"], guideHref: "/bahrain/",
+    tags: ["Business", "Family"], guideHref: "/border-guides/saudi-bahrain/",
   },
 
   /* ---------------- Muscat → Dubai ---------------- */
@@ -334,7 +334,7 @@ export const ROUTES: Route[] = [
     ],
     related: ["riyadh-to-dubai", "amman-to-riyadh"], sources: [S.omRop, S.omTransit, S.aeRoad, S.aeIcp],
     order: ["summary", "whyIntl", "border", "overview", "timeline", "docs", "driver", "vehicles", "luggage", "return", "usecases", "tips", "multi", "faq", "sources", "related"],
-    tags: ["Business", "Family"], guideHref: "/oman/",
+    tags: ["Business", "Family"], guideHref: "/border-guides/oman-uae/",
   },
 
   /* ---------------- Amman → Riyadh ---------------- */
@@ -392,7 +392,7 @@ export const ROUTES: Route[] = [
     ],
     related: ["riyadh-to-dubai", "makkah-to-dubai"], sources: [S.joMfa, S.saVisa, S.saMoi, S.gcc],
     order: ["summary", "whyIntl", "overview", "border", "timeline", "docs", "driver", "usecases", "vehicles", "luggage", "return", "tips", "multi", "faq", "sources", "related"],
-    tags: ["Business", "Family", "Group"], guideHref: "/jordan/",
+    tags: ["Business", "Family", "Group"], guideHref: "/border-guides/jordan-saudi/",
   },
 ];
 

@@ -93,7 +93,7 @@ const jsonLd = {
       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
       { "@type": "ListItem", position: 2, name: "Border Guides", item: URL }] },
     { "@type": "CollectionPage", "@id": `${URL}#page`, name: "GCC Border Crossing Guides", url: URL, description: DESC, isPartOf: { "@id": `${SITE.url}/#website` },
-      mainEntity: { "@type": "ItemList", itemListElement: CORRIDORS.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: `${c.name}: ${c.crossing}`, url: SITE.url + c.href })) } },
+      mainEntity: { "@type": "ItemList", itemListElement: CORRIDORS.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: `${c.name}: ${c.crossing}`, url: SITE.url + c.guide })) } },
     { "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -162,7 +162,7 @@ export default function BorderGuidesPage() {
       <section className="section" id="corridors">
         <div className="container-x">
           <H2>Featured GCC Border Corridors</H2>
-          <p className="mt-3 max-w-2xl text-sm text-muted">Strategically important corridors only. Each links to a route page with its own detail. Dedicated border guides will be published as they are researched.</p>
+          <p className="mt-3 max-w-2xl text-sm text-muted">Strategically important corridors only. Each links to a route page with its own detail. Each opens its own border guide.</p>
         </div>
         <ul className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:px-6 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))]" aria-label="Border corridors, scroll horizontally">
           {CORRIDORS.map((c) => (
@@ -171,7 +171,7 @@ export default function BorderGuidesPage() {
               <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-navy"><span>{c.a}</span><span className="h-px flex-1 bg-gold/70" /><span className="h-2.5 w-2.5 rotate-45 bg-gold" /><span className="h-px flex-1 bg-gold/70" /><span>{c.b}</span></div>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-gold">{c.crossing}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">{c.summary}</p>
-              <Link href={c.href} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-gold">Read the route page<ArrowIcon /></Link>
+              <Link href={c.guide} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-gold">Read Border Guide<ArrowIcon /></Link>
               {publishedRoutes().filter((r) => r.corridorId === c.id).length > 0 && (<ul className="mt-3 flex flex-wrap gap-2 text-xs">{publishedRoutes().filter((r) => r.corridorId === c.id).map((r) => (<li key={r.slug}><Link href={`/routes/${r.slug}/`} className="inline-block rounded-full border border-slate-300 px-3 py-1 font-medium text-navy hover:border-gold">{r.from.city} → {r.to.city}</Link></li>))}</ul>)}
             </li>
           ))}

@@ -38,7 +38,7 @@ export function HeroMap() {
       <div className="mt-3 rounded-xl bg-white/10 p-4 text-white" aria-live="polite">
         <p className="text-sm font-semibold">{active.name}</p>
         <p className="text-xs text-gold">{active.crossing}</p>
-        <Link href={active.href} className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:underline">View Guide<ArrowIcon /></Link>
+        <Link href={active.guide} className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:underline">View Guide<ArrowIcon /></Link>
       </div>
       <ul className="mt-3 flex flex-wrap gap-2" aria-label="Select a border corridor">
         {CORRIDORS.map((c) => (<li key={c.id}><button type="button" onClick={() => pick(c)} aria-pressed={active.id === c.id} className={`min-h-[40px] rounded-full border px-3 text-xs font-semibold ${active.id === c.id ? "border-gold bg-gold/20 text-white" : "border-white/25 text-white/75"}`}>{c.a} ↔ {c.b}</button></li>))}
@@ -77,7 +77,7 @@ export function RouteFinder() {
             <p className="mt-2 text-sm text-muted">{info.c.summary}</p>
             <p className="mt-2 text-sm text-ink"><span className="font-semibold">Key preparation ({who}, {dir}):</span> {PREP[who]}</p>
             <p className="mt-2 text-xs text-muted">The applicable crossing can depend on your exact origin, destination, vehicle and current border operations.</p>
-            <Link href={info.c.href} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-gold">Read the route page<ArrowIcon /></Link>
+            <Link href={info.c.guide} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-gold">Read the border guide<ArrowIcon /></Link>
           </>)}
           {info.kind === "via" && (<>
             <p className="text-xs font-semibold text-gold">Multi-country road journey</p>
@@ -154,7 +154,7 @@ export function Simulator() {
             <div><dt className="font-semibold text-navy">Luggage considerations</dt><dd className="text-muted">{v.lug} luggage. Bag count and size decide the vehicle.</dd></div>
             <div><dt className="font-semibold text-navy">Vehicle considerations</dt><dd className="text-muted">{v.veh === "Not sure yet" ? "We recommend a category from your passengers and bags." : `${v.veh} preferred.`} Eligibility is confirmed for the route.</dd></div>
             <div className="sm:col-span-2"><dt className="font-semibold text-navy">Document checklist</dt><dd className="text-muted">Passport, visa or entry permission where applicable, residency documents where relevant, and vehicle documentation reviewed for the route.</dd></div>
-            {info.kind === "direct" && <div className="sm:col-span-2"><dt className="font-semibold text-navy">Relevant guide</dt><dd><Link href={info.c.href} className="text-ocean underline underline-offset-4 hover:text-gold">{info.c.name} route page</Link></dd></div>}
+            {info.kind === "direct" && <div className="sm:col-span-2"><dt className="font-semibold text-navy">Relevant guide</dt><dd><Link href={info.c.guide} className="text-ocean underline underline-offset-4 hover:text-gold">{info.c.name} border guide</Link></dd></div>}
           </dl>
           <p className="mt-4 text-xs text-muted">This profile does not predict border processing time, clearance or approval.</p>
           <div className="mt-4 flex flex-wrap gap-3"><a href="#quote" className="btn-gold">Request Route-Specific Quote</a><button type="button" className="btn-outline" onClick={() => setStep(0)}>Start again</button></div>
@@ -267,7 +267,7 @@ export function Directory() {
           <li key={c.id} className="rounded-2xl border border-slate-200 bg-white p-5">
             <p className="font-semibold text-navy">{c.name}</p><p className="text-xs font-medium text-gold">{c.crossing}</p>
             <p className="mt-2 text-sm text-muted">{c.summary}</p>
-            <Link href={c.href} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-gold">Open route page<ArrowIcon /></Link>
+            <Link href={c.guide} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-gold">Read Border Guide<ArrowIcon /></Link>
           </li>
         ))}
         {list.length === 0 && <li className="text-sm text-muted sm:col-span-3">No corridor matches those filters. Try widening them.</li>}

@@ -53,7 +53,7 @@ export function ArrivalPlanner() {
           <p className="text-xs font-semibold text-gold">International road journey</p>
           <p className="mt-1 text-lg font-semibold text-navy">{dir === "Arriving" ? `${ap.name} → ${dest}` : `${dest} → ${ap.name}`}</p>
           <p className="mt-2 text-sm text-muted">The border corridor is {info.c.name} ({info.c.crossing}). The applicable crossing depends on your pickup, destination, vehicle and current border operations.</p>
-          <Link href={info.c.href} className="mt-2 inline-block text-sm font-semibold text-ocean hover:text-gold">Read the route page →</Link>
+          <Link href={info.c.guide} className="mt-2 inline-block text-sm font-semibold text-ocean hover:text-gold">Read the border guide →</Link>
         </>)}
         {info.kind === "via" && (<>
           <p className="text-xs font-semibold text-gold">Multi-country road journey</p>
