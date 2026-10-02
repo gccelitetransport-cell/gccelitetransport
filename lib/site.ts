@@ -119,3 +119,6 @@ export const FAQS = [
 
 export const DISCLAIMER =
   "Border, visa, immigration, insurance and vehicle requirements may change. Always verify current requirements with the relevant authorities before travel.";
+
+// Set to a real ISO date (e.g. "2026-10-15") only when the border-guide content has actually been reviewed.
+export const BORDER_GUIDES_REVIEWED_ON = "";
