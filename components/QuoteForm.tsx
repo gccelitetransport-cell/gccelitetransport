@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { waLink } from "@/lib/site";
 
-const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman"];
+const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan"];
 const VEHICLES = ["No preference", "Executive Sedan", "Premium SUV", "Large SUV", "Premium Van", "Minibus"];
 
 export function QuoteForm({ id = "quote", compact = false }: { id?: string; compact?: boolean }) {

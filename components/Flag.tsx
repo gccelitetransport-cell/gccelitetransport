@@ -45,6 +45,16 @@ export function Flag({ id, className = "h-6 w-9" }: { id: string; className?: st
           <circle cx="7" cy="6" r="2.6" fill="#fff" />
         </svg>
       );
+    case "jordan":
+      return (
+        <svg {...common} aria-label="Jordan flag">
+          <rect width="48" height="10.7" fill="#000" />
+          <rect y="10.7" width="48" height="10.6" fill="#fff" />
+          <rect y="21.3" width="48" height="10.7" fill="#007a3d" />
+          <path d="M0 0L22 16L0 32Z" fill="#ce1126" />
+          <circle cx="7" cy="16" r="2" fill="#fff" />
+        </svg>
+      );
     default: // saudi-arabia
       return (
         <svg {...common} aria-label="Saudi Arabia flag">
