@@ -5,7 +5,9 @@ import { waLink } from "@/lib/site";
 const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan"];
 const VEHICLES = ["No preference", "Executive Sedan", "Premium SUV", "Large SUV", "Premium Van", "Minibus"];
 
-export function QuoteForm({ id = "quote", compact = false }: { id?: string; compact?: boolean }) {
+type QuoteProps = { id?: string; compact?: boolean; title?: string; button?: string; note?: string; fromCountry?: string };
+
+export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GCC Journey", button = "Get My Quote", note = "Route availability and vehicle arrangements are confirmed individually.", fromCountry = "" }: QuoteProps) {
   const [trip, setTrip] = useState("One Way");
   const [sent, setSent] = useState(false);
 
@@ -28,10 +30,10 @@ export function QuoteForm({ id = "quote", compact = false }: { id?: string; comp
 
   return (
     <form id={id} onSubmit={onSubmit} className="rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-black/5 sm:p-7" aria-labelledby={`${id}-title`}>
-      <h2 id={`${id}-title`} className="text-xl font-bold text-navy">Plan Your GCC Journey</h2>
+      <h2 id={`${id}-title`} className="text-xl font-bold text-navy">{title}</h2>
       <div className="mt-4 grid grid-cols-2 gap-3">
         <label className="label">Pickup Country
-          <select name="pc" required defaultValue="" className="field"><option value="" disabled>Select</option>{COUNTRIES.map((c) => <option key={c}>{c}</option>)}</select></label>
+          <select name="pc" required defaultValue={fromCountry} className="field"><option value="" disabled>Select</option>{COUNTRIES.map((c) => <option key={c}>{c}</option>)}</select></label>
         <label className="label">Pickup City / Location
           <input name="pl" required placeholder="e.g. Manama" className="field" /></label>
         <label className="label">Destination Country
@@ -55,9 +57,9 @@ export function QuoteForm({ id = "quote", compact = false }: { id?: string; comp
           ))}
         </div>
       </fieldset>
-      <button type="submit" className="btn-navy mt-5 w-full">Get My Quote</button>
+      <button type="submit" className="btn-navy mt-5 w-full">{button}</button>
       <p className="mt-3 text-center text-xs text-muted">
-        {sent ? "WhatsApp opened with your request. Send it to our team to receive your quote." : "Route availability and vehicle arrangements are confirmed individually."}
+        {sent ? "WhatsApp opened with your request. Send it to our team to receive your quote." : note}
       </p>
       {!compact && <p className="mt-1 text-center text-[11px] text-muted/80">This is a quote request, not an instant booking. No passport details are needed at this stage.</p>}
     </form>
