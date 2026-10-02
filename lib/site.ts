@@ -127,4 +127,4 @@ export const BORDER_GUIDES_REVIEWED_ON = "";
 export const LEGAL_UPDATED = "";
 
 // Google Search Console HTML-tag verification token (the "content" value only). Leave empty if verifying via DNS.
-export const GOOGLE_SITE_VERIFICATION = "";
+export const GOOGLE_SITE_VERIFICATION = "tQmZATaGVnu9vEFUESYKIRD6IUeD9BgdwY1rFVUnmcc";
