@@ -4,7 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StickyBar } from "@/components/StickyBar";
-import { SITE } from "@/lib/site";
+import { GOOGLE_SITE_VERIFICATION, SITE } from "@/lib/site";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--font-poppins" });
 
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: { type: "website", siteName: SITE.name, url: SITE.url, title: "GCC Cross-Border Transport | Private GCC Transfers", description: "Private road transportation between GCC countries." },
   robots: { index: true, follow: true },
+  ...(GOOGLE_SITE_VERIFICATION ? { verification: { google: GOOGLE_SITE_VERIFICATION } } : {}),
 };
 export const viewport: Viewport = { themeColor: "#0B1F33", width: "device-width", initialScale: 1 };
 
