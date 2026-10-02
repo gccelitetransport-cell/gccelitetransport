@@ -122,3 +122,6 @@ export const DISCLAIMER =
 
 // Set to a real ISO date (e.g. "2026-10-15") only when the border-guide content has actually been reviewed.
 export const BORDER_GUIDES_REVIEWED_ON = "";
+
+// Set to a real date (e.g. "2026-10-15") once the legal pages have been reviewed and approved.
+export const LEGAL_UPDATED = "";
