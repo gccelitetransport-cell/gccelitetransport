@@ -1,3 +1,4 @@
+import { enAlternates } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -19,7 +20,7 @@ const DISC = "Border, immigration, customs, vehicle and entry requirements are d
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params; const g = getGuide(slug); if (!g) return {};
   const url = `${SITE.url}/border-guides/${g.slug}/`;
-  return { title: { absolute: g.title }, description: g.desc, alternates: { canonical: url },
+  return { title: { absolute: g.title }, description: g.desc, alternates: enAlternates(`/border-guides/${g.slug}/`),
     openGraph: { type: "article", url, siteName: SITE.name, title: g.title, description: g.desc, images: [{ url: `/og/guide-${g.slug}.jpg`, width: 1200, height: 630, alt: g.h1 }] },
     twitter: { card: "summary_large_image", title: g.title, description: g.desc, images: [`/og/guide-${g.slug}.jpg`] } };
 }

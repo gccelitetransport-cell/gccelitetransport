@@ -19,3 +19,9 @@ The quote form opens WhatsApp with a pre-filled request (no backend needed).
 
 ## Analytics
 Enable Cloudflare Web Analytics in the Cloudflare dashboard (automatic for proxied domains), or paste a site token into `CF_ANALYTICS_TOKEN` in `lib/site.ts`. WhatsApp, phone and quote clicks are sent as events to Plausible, Umami or GA4 if one of them is installed (`lib/track.ts`).
+
+## Arabic (/ar/)
+- English pages live in `app/(en)/`, Arabic pages in `app/(ar)/ar/`; each group has its own root layout (`lang="en"` / `lang="ar" dir="rtl"`). `app/global-not-found.tsx` serves the shared 404.
+- Arabic copy: `lib/ar/site.ts`, `lib/ar/guides.ts`; Arabic components: `components/ar/`.
+- When you add an Arabic page, add its English path to `AR_PATHS` in `lib/i18n.ts`. That drives hreflang tags, the sitemap alternates and the EN ↔ AR header switch.
+- Arabic share images are the `ar-*` cards in `scripts/og.mjs` (font: `scripts/fonts/plexarabic-*.woff2`).

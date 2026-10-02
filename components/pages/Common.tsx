@@ -10,7 +10,7 @@ export function ScrollProgress() {
     on(); window.addEventListener("scroll", on, { passive: true });
     return () => { window.removeEventListener("scroll", on); cancelAnimationFrame(raf); };
   }, []);
-  return <div className="fixed inset-x-0 top-16 z-40 h-0.5 bg-transparent" aria-hidden="true"><div ref={ref} className="h-full origin-left bg-gold" style={{ transform: "scaleX(0)" }} /></div>;
+  return <div className="fixed inset-x-0 top-16 z-40 h-0.5 bg-transparent" aria-hidden="true"><div ref={ref} className="h-full origin-left bg-gold rtl:origin-right" style={{ transform: "scaleX(0)" }} /></div>;
 }
 
 /** Sticky in-page index with scroll-spy. ids must match section ids. */

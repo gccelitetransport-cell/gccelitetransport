@@ -12,7 +12,7 @@ const config: Config = {
         ink: "#17212B",
         muted: "#667085",
       },
-      fontFamily: { sans: ["var(--font-poppins)", "system-ui", "sans-serif"] },
+      fontFamily: { sans: ["var(--font-poppins)", "system-ui", "sans-serif"], ar: ["var(--font-poppins)", "var(--font-arabic)", "system-ui", "sans-serif"] },
     },
   },
   plugins: [],

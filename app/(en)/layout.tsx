@@ -1,13 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StickyBar } from "@/components/StickyBar";
 import { Analytics } from "@/components/Analytics";
 import { GOOGLE_SITE_VERIFICATION, SITE } from "@/lib/site";
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--font-poppins" });
+import { poppins } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),

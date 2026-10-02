@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
+import { enAlternates } from "@/lib/i18n";
 import {
   Airport, Booking, Corporate, Countries, Explainer, Family, Faq, Fleet, FinalCta, Guides, Hero, Highlights, PrivateJourney, Routes, Services, Travelers, Why,
 } from "@/components/Sections";
 import { FAQS, SITE } from "@/lib/site";
+
+export const metadata: Metadata = { alternates: enAlternates("/") };
 
 const jsonLd = {
   "@context": "https://schema.org",

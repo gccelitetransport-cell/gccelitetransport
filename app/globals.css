@@ -63,3 +63,10 @@ details[open] > .faq-body { animation: faqIn .3s ease-out; }
 .marquee { animation: marquee 38s linear infinite; }
 .marquee:hover { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .veh-in, .row-in { animation: none; opacity: 1; } .marquee { animation: none; } }
+
+/* Arabic (RTL): letter-spacing breaks Arabic letter joining, and Arabic needs more line height */
+[dir="rtl"] *, [dir="rtl"] { letter-spacing: 0 !important; }
+[dir="rtl"] body, body[dir="rtl"] { line-height: 1.75; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { line-height: 1.35; }
+.flip-rtl { transform: none; }
+[dir="rtl"] .flip-rtl { transform: scaleX(-1); }

@@ -4,8 +4,9 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 import { readFileSync } from "fs";
-const font = (w) => readFileSync(new URL(`./fonts/poppins-${w}.woff2`, import.meta.url)).toString("base64");
-const FONTS = `@font-face{font-family:Poppins;font-weight:500;src:url(data:font/woff2;base64,${font(500)}) format("woff2")}@font-face{font-family:Poppins;font-weight:700;src:url(data:font/woff2;base64,${font(700)}) format("woff2")}`;
+const font = (w, f = "poppins") => readFileSync(new URL(`./fonts/${f}-${w}.woff2`, import.meta.url)).toString("base64");
+const face = (fam, f, w) => `@font-face{font-family:${fam};font-weight:${w};src:url(data:font/woff2;base64,${font(w, f)}) format("woff2")}`;
+const FONTS = face("Poppins", "poppins", 500) + face("Poppins", "poppins", 700) + face("PlexArabic", "plexarabic", 500) + face("PlexArabic", "plexarabic", 700);
 const { chromium } = require("playwright");
 
 const CARDS = [
@@ -47,14 +48,29 @@ const CARDS = [
   ["article-planning-a-multi-country-gcc-road-trip", "TRAVEL GUIDE", "Planning a Multi-Country GCC Road Trip", "Borders, visas, order and buffers"],
 ];
 
-const html = (eyebrow, title, sub) => `<!doctype html><html><head><meta charset="utf-8">
-<style>${FONTS}*{margin:0;box-sizing:border-box}body{width:1200px;height:630px;font-family:Poppins,Arial,sans-serif;background:#0B1F33;color:#fff;position:relative;overflow:hidden}
+// Arabic cards: slug starts with "ar-"; rendered right-to-left with IBM Plex Sans Arabic.
+const AR_CARDS = [
+  ["ar-home", "GCC ELITE TRANSPORT", "نقل بري خاص بين دول الخليج", "السعودية · الإمارات · البحرين · قطر · الكويت · عُمان · الأردن"],
+  ["ar-cross-border-transfers", "النقل عبر الحدود", "نقل بري خاص بين دول الخليج عبر الحدود", "سيارة وسائق وتخطيط لكل منفذ حدودي"],
+  ["ar-border-guides", "أدلة المنافذ", "أدلة المنافذ الحدودية البرية في الخليج", "المستندات والسيارة والمسار لكل منفذ"],
+  ["ar-guide-saudi-bahrain", "السعودية ↔ البحرين", "دليل جسر الملك فهد", "جزيرة المنفذ في منتصف الجسر"],
+  ["ar-guide-qatar-saudi", "قطر ↔ السعودية", "دليل منفذ أبو سمرة / سلوى", "المنفذ البري الوحيد لقطر"],
+  ["ar-guide-uae-saudi", "الإمارات ↔ السعودية", "دليل منفذ الغويفات / البطحاء", "عند الطرف الغربي لإمارة أبوظبي"],
+  ["ar-guide-oman-uae", "عُمان ↔ الإمارات", "دليل المنافذ بين عُمان والإمارات", "حتا والعين وخطمة ملاحة ومسندم"],
+  ["ar-guide-kuwait-saudi", "الكويت ↔ السعودية", "دليل المنافذ بين الكويت والسعودية", "النويصيب–الخفجي والسالمي–الرقعي"],
+  ["ar-guide-oman-saudi", "عُمان ↔ السعودية", "دليل منفذ الربع الخالي", "الطريق الصحراوي من عبري إلى الأحساء"],
+  ["ar-guide-jordan-saudi", "الأردن ↔ السعودية", "دليل المنافذ بين الأردن والسعودية", "العمري والمدورة والدرة"],
+];
+
+const html = (eyebrow, title, sub, ar = false) => `<!doctype html><html${ar ? ' lang="ar" dir="rtl"' : ""}><head><meta charset="utf-8">
+<style>${FONTS}*{margin:0;box-sizing:border-box}body{width:1200px;height:630px;font-family:Poppins,PlexArabic,Arial,sans-serif;background:#0B1F33;color:#fff;position:relative;overflow:hidden}
 .glow{position:absolute;right:-120px;bottom:-220px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(201,161,74,.45),rgba(201,161,74,0) 65%)}
 .road{position:absolute;left:0;bottom:0;width:1200px;height:630px}
 .wrap{position:absolute;inset:0;padding:64px 80px 96px;display:flex;flex-direction:column}
 .logo{display:flex;align-items:center;gap:16px}.logo b{font-size:28px}.logo span{display:block;font-size:13px;letter-spacing:.3em;color:#C9A14A}
 .eyebrow{margin-top:auto;font-size:22px;letter-spacing:.18em;color:#C9A14A;font-weight:500}
-h1{margin-top:14px;font-size:${title.length > 34 ? 58 : 72}px;line-height:1.08;font-weight:700;max-width:960px}
+h1{margin-top:14px;font-size:${title.length > 34 ? 58 : 72}px;line-height:${ar ? 1.3 : 1.08};font-weight:700;max-width:960px}
+${ar ? ".eyebrow{letter-spacing:0}.logo{direction:ltr;align-self:flex-start}" : ""}
 p{margin-top:18px;font-size:28px;color:rgba(255,255,255,.78)}</style></head><body>
 <div class="glow"></div>
 <svg class="road" viewBox="0 0 1200 630"><path d="M-20 612 C 300 612 460 572 760 584 S 1060 610 1220 566" fill="none" stroke="#C9A14A" stroke-width="4" stroke-dasharray="14 14" opacity=".7"/><circle cx="760" cy="584" r="9" fill="#C9A14A"/></svg>
@@ -63,9 +79,9 @@ p{margin-top:18px;font-size:28px;color:rgba(255,255,255,.78)}</style></head><bod
 
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || "/opt/pw-browsers/chromium" });
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
-for (const [slug, e, t, s] of CARDS) {
-  await page.setContent(html(e, t, s), { waitUntil: "networkidle" });
+for (const [slug, e, t, s] of [...CARDS, ...AR_CARDS]) {
+  await page.setContent(html(e, t, s, slug.startsWith("ar-")), { waitUntil: "networkidle" });
   await page.screenshot({ path: `public/og/${slug}.jpg`, type: "jpeg", quality: 82 });
 }
 await browser.close();
-console.log(`wrote ${CARDS.length} images`);
+console.log(`wrote ${CARDS.length + AR_CARDS.length} images`);

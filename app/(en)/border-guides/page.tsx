@@ -1,3 +1,4 @@
+import { enAlternates } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowIcon, CheckIcon, PlusIcon, WhatsAppIcon } from "@/components/Icons";
@@ -15,7 +16,7 @@ const DESC = "GCC border crossing guides: documents, vehicle rules and route pla
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
-  alternates: { canonical: URL },
+  alternates: enAlternates("/border-guides/"),
   openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/border-guides.jpg", width: 1200, height: 630, alt: TITLE }] },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/border-guides.jpg"] },
 };
