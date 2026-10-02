@@ -20,3 +20,19 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   .label { @apply block text-xs font-medium text-muted; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Kuwait page motion (transform/opacity only) */
+.rv { transition: opacity .6s ease-out, transform .6s ease-out; }
+.rv-hidden { opacity: 0; transform: translateY(18px) scale(.98); }
+.draw { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s ease-out; }
+.draw.on { stroke-dashoffset: 0; }
+details[open] > .faq-body { animation: faqIn .3s ease-out; }
+@keyframes faqIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@keyframes dashMove { to { stroke-dashoffset: -24; } }
+.road-anim { animation: dashMove 2.4s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .rv, .draw { transition: none !important; }
+  .rv-hidden { opacity: 1; transform: none; }
+  .draw { stroke-dashoffset: 0; }
+  .road-anim, details[open] > .faq-body { animation: none !important; }
+}
