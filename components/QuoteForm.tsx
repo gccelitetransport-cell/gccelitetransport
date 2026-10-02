@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { waLink } from "@/lib/site";
 
-const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan"];
+const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan", "Other"];
 const VEHICLES = ["No preference", "Executive Sedan", "Premium SUV", "Large SUV", "Premium Van", "Minibus"];
 
-type QuoteProps = { id?: string; compact?: boolean; title?: string; button?: string; note?: string; fromCountry?: string };
+type QuoteProps = { id?: string; compact?: boolean; title?: string; button?: string; note?: string; fromCountry?: string; vehicles?: string[]; showNotes?: boolean; luggageLabel?: string };
 
-export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GCC Journey", button = "Get My Quote", note = "Route availability and vehicle arrangements are confirmed individually.", fromCountry = "" }: QuoteProps) {
+export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GCC Journey", button = "Get My Quote", note = "Route availability and vehicle arrangements are confirmed individually.", fromCountry = "", vehicles = VEHICLES, showNotes = false, luggageLabel = "Luggage" }: QuoteProps) {
   const [trip, setTrip] = useState("One Way");
   const [sent, setSent] = useState(false);
 
@@ -23,6 +23,7 @@ export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GC
       `Date: ${g("date")}  Time: ${g("time")}`,
       `Passengers: ${g("pax")}  Luggage: ${g("bags")}`,
       `Vehicle: ${g("veh")}`,
+      ...(showNotes ? [`Notes: ${g("notes")}`] : []),
     ].join("\n");
     window.open(waLink(msg), "_blank", "noopener");
     setSent(true);
@@ -43,9 +44,11 @@ export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GC
         <label className="label">Travel Date<input name="date" type="date" required className="field" /></label>
         <label className="label">Pickup Time<input name="time" type="time" className="field" /></label>
         <label className="label">Passengers<input name="pax" type="number" min={1} max={60} defaultValue={2} required className="field" /></label>
-        <label className="label">Luggage<input name="bags" placeholder="e.g. 3 suitcases" className="field" /></label>
+        <label className="label">{luggageLabel}<input name="bags" placeholder="e.g. 3 suitcases" className="field" /></label>
         <label className="label col-span-2">Vehicle Preference
-          <select name="veh" className="field">{VEHICLES.map((v) => <option key={v}>{v}</option>)}</select></label>
+          <select name="veh" className="field">{vehicles.map((v) => <option key={v}>{v}</option>)}</select></label>
+        {showNotes && (<label className="label col-span-2">Additional Notes
+          <textarea name="notes" rows={2} placeholder="e.g. child seats, airport pickup, elderly passengers" className="field !min-h-[72px] py-2" /></label>)}
       </div>
       <fieldset className="mt-4">
         <legend className="label">Trip Type</legend>
