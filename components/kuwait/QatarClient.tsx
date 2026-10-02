@@ -47,7 +47,7 @@ export function GatewayHero() {
 }
 
 /** Left-edge rail: QATAR · ABU SAMRA · BORDER · SAUDI, activated by data-stage sections. */
-export function GatewayRail() {
+export function GatewayRail({ items = ["Qatar", "Abu Samra", "Border", "Saudi"] }: { items?: string[] } = {}) {
   const [stage, setStage] = useState(0);
   useEffect(() => {
     const els = Array.from(document.querySelectorAll<HTMLElement>("[data-stage]"));
@@ -56,14 +56,13 @@ export function GatewayRail() {
     els.forEach((e) => io.observe(e));
     return () => io.disconnect();
   }, []);
-  const items = ["Qatar", "Abu Samra", "Border", "Saudi"];
   return (
     <nav aria-label="Journey progress" className="pointer-events-none fixed left-4 top-1/2 z-30 hidden -translate-y-1/2 2xl:block">
       <ol className="flex flex-col items-start gap-1 text-[10px] font-semibold tracking-widest">
         {items.map((t, i) => (
           <li key={t} className="flex flex-col items-start">
             <span className="flex items-center gap-2"><span className={`h-2.5 w-2.5 rounded-full border-2 ${i <= stage ? "border-gold bg-gold" : "border-slate-300 bg-white"}`} /><span className={i === stage ? "text-gold" : "text-muted"}>{t.toUpperCase()}</span></span>
-            {i < 3 && <span className={`ml-[4px] h-6 w-0.5 ${i < stage ? "bg-gold" : "bg-slate-300"}`} />}
+            {i < items.length - 1 && <span className={`ml-[4px] h-6 w-0.5 ${i < stage ? "bg-gold" : "bg-slate-300"}`} />}
           </li>
         ))}
       </ol>

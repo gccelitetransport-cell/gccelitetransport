@@ -5,9 +5,9 @@ import { waLink } from "@/lib/site";
 const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan", "Other"];
 const VEHICLES = ["No preference", "Executive Sedan", "Premium SUV", "Large SUV", "Premium Van", "Minibus"];
 
-type QuoteProps = { id?: string; compact?: boolean; title?: string; button?: string; note?: string; fromCountry?: string; vehicles?: string[]; showNotes?: boolean; luggageLabel?: string; toCountry?: string; cabinBags?: boolean };
+type QuoteProps = { id?: string; compact?: boolean; title?: string; button?: string; note?: string; fromCountry?: string; vehicles?: string[]; showNotes?: boolean; luggageLabel?: string; toCountry?: string; cabinBags?: boolean; notesLabel?: string };
 
-export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GCC Journey", button = "Get My Quote", note = "Route availability and vehicle arrangements are confirmed individually.", fromCountry = "", vehicles = VEHICLES, showNotes = false, luggageLabel = "Luggage", toCountry = "", cabinBags = false }: QuoteProps) {
+export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GCC Journey", button = "Get My Quote", note = "Route availability and vehicle arrangements are confirmed individually.", fromCountry = "", vehicles = VEHICLES, showNotes = false, luggageLabel = "Luggage", toCountry = "", cabinBags = false, notesLabel = "Additional Notes" }: QuoteProps) {
   const [trip, setTrip] = useState("One Way");
   const [sent, setSent] = useState(false);
 
@@ -48,7 +48,7 @@ export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GC
         {cabinBags && (<label className="label col-span-2">Cabin Bags<input name="cabin" placeholder="e.g. 2" className="field" /></label>)}
         <label className="label col-span-2">Vehicle Preference
           <select name="veh" className="field">{vehicles.map((v) => <option key={v}>{v}</option>)}</select></label>
-        {showNotes && (<label className="label col-span-2">Additional Notes
+        {showNotes && (<label className="label col-span-2">{notesLabel}
           <textarea name="notes" rows={2} placeholder="e.g. child seats, airport pickup, elderly passengers" className="field !min-h-[72px] py-2" /></label>)}
       </div>
       <fieldset className="mt-4">
