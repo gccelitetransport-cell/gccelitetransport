@@ -36,3 +36,20 @@ details[open] > .faq-body { animation: faqIn .3s ease-out; }
   .draw { stroke-dashoffset: 0; }
   .road-anim, details[open] > .faq-body { animation: none !important; }
 }
+
+/* Qatar gateway hero (CSS-only staged intro) */
+@keyframes qaIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes qaDrive { from { transform: translateY(0) scale(1.15); } to { transform: translateY(-120px) scale(.55); } }
+@keyframes qaGateL { to { transform: rotate(-75deg); } }
+@keyframes qaGateR { to { transform: rotate(75deg); } }
+@keyframes slideR { 0%,100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+.qa-in { opacity: 0; animation: qaIn .6s ease-out forwards; }
+.qa-drive { transform-box: fill-box; transform-origin: center; animation: qaDrive 2.4s ease-in-out .9s forwards; }
+.qa-gate-l { transform-box: fill-box; transform-origin: left center; animation: qaGateL .8s ease-out 3s forwards; }
+.qa-gate-r { transform-box: fill-box; transform-origin: right center; animation: qaGateR .8s ease-out 3s forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .qa-in { opacity: 1; animation: none; }
+  .qa-drive, .qa-gate-l, .qa-gate-r, [class*="animate-[slideR"] { animation: none !important; }
+  .qa-drive { transform: translateY(-120px) scale(.55); }
+  .qa-gate-l { transform: rotate(-75deg); } .qa-gate-r { transform: rotate(75deg); }
+}

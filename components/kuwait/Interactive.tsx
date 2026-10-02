@@ -115,7 +115,7 @@ export function LuggageCalc() {
   );
 }
 
-export function TripToggle() {
+export function TripToggle({ from = "Kuwait", to = "Saudi Arabia" }: { from?: string; to?: string } = {}) {
   const [ret, setRet] = useState(false);
   return (
     <div>
@@ -125,8 +125,8 @@ export function TripToggle() {
         ))}
       </div>
       <div className="mt-5 space-y-2" aria-live="polite">
-        <div className="flex items-center gap-3 rounded-xl bg-white p-4 ring-1 ring-slate-200"><span className="text-sm font-semibold text-navy">Kuwait</span><ArrowIcon className="h-4 w-4 text-gold" /><span className="text-sm font-semibold text-navy">Saudi Arabia</span></div>
-        <div className={`flex items-center gap-3 rounded-xl bg-white p-4 ring-1 ring-slate-200 transition-all duration-500 ${ret ? "translate-y-0 opacity-100" : "pointer-events-none h-0 -translate-y-2 overflow-hidden p-0 opacity-0 ring-0"}`}><span className="text-sm font-semibold text-navy">Saudi Arabia</span><ArrowIcon className="h-4 w-4 text-gold" /><span className="text-sm font-semibold text-navy">Kuwait</span></div>
+        <div className="flex items-center gap-3 rounded-xl bg-white p-4 ring-1 ring-slate-200"><span className="text-sm font-semibold text-navy">{from}</span><ArrowIcon className="h-4 w-4 animate-[slideR_1.6s_ease-in-out_infinite] text-gold" /><span className="text-sm font-semibold text-navy">{to}</span></div>
+        <div className={`flex items-center gap-3 rounded-xl bg-white p-4 ring-1 ring-slate-200 transition-all duration-500 ${ret ? "translate-y-0 opacity-100" : "pointer-events-none h-0 -translate-y-2 overflow-hidden p-0 opacity-0 ring-0"}`}><span className="text-sm font-semibold text-navy">{to}</span><ArrowIcon className="h-4 w-4 animate-[slideR_1.6s_ease-in-out_infinite] text-gold" /><span className="text-sm font-semibold text-navy">{from}</span></div>
       </div>
       <p className="mt-3 text-sm text-muted">{ret ? "Give us the return date, time and pickup point when you request the quote. A scheduled return can be agreed in advance." : "Suited to passengers who continue independently after arriving."}</p>
     </div>

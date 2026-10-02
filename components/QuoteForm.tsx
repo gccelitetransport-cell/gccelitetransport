@@ -5,9 +5,9 @@ import { waLink } from "@/lib/site";
 const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan", "Other"];
 const VEHICLES = ["No preference", "Executive Sedan", "Premium SUV", "Large SUV", "Premium Van", "Minibus"];
 
-type QuoteProps = { id?: string; compact?: boolean; title?: string; button?: string; note?: string; fromCountry?: string; vehicles?: string[]; showNotes?: boolean; luggageLabel?: string };
+type QuoteProps = { id?: string; compact?: boolean; title?: string; button?: string; note?: string; fromCountry?: string; vehicles?: string[]; showNotes?: boolean; luggageLabel?: string; toCountry?: string; cabinBags?: boolean };
 
-export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GCC Journey", button = "Get My Quote", note = "Route availability and vehicle arrangements are confirmed individually.", fromCountry = "", vehicles = VEHICLES, showNotes = false, luggageLabel = "Luggage" }: QuoteProps) {
+export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GCC Journey", button = "Get My Quote", note = "Route availability and vehicle arrangements are confirmed individually.", fromCountry = "", vehicles = VEHICLES, showNotes = false, luggageLabel = "Luggage", toCountry = "", cabinBags = false }: QuoteProps) {
   const [trip, setTrip] = useState("One Way");
   const [sent, setSent] = useState(false);
 
@@ -21,7 +21,7 @@ export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GC
       `From: ${g("pc")}, ${g("pl")}`,
       `To: ${g("dc")}, ${g("dl")}`,
       `Date: ${g("date")}  Time: ${g("time")}`,
-      `Passengers: ${g("pax")}  Luggage: ${g("bags")}`,
+      `Passengers: ${g("pax")}  Luggage: ${g("bags")}${cabinBags ? "  Cabin bags: " + g("cabin") : ""}`,
       `Vehicle: ${g("veh")}`,
       ...(showNotes ? [`Notes: ${g("notes")}`] : []),
     ].join("\n");
@@ -38,13 +38,14 @@ export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GC
         <label className="label">Pickup City / Location
           <input name="pl" required placeholder="e.g. Manama" className="field" /></label>
         <label className="label">Destination Country
-          <select name="dc" required defaultValue="" className="field"><option value="" disabled>Select</option>{COUNTRIES.map((c) => <option key={c}>{c}</option>)}</select></label>
+          <select name="dc" required defaultValue={toCountry} className="field"><option value="" disabled>Select</option>{COUNTRIES.map((c) => <option key={c}>{c}</option>)}</select></label>
         <label className="label">Destination City / Location
           <input name="dl" required placeholder="e.g. Dammam" className="field" /></label>
         <label className="label">Travel Date<input name="date" type="date" required className="field" /></label>
         <label className="label">Pickup Time<input name="time" type="time" className="field" /></label>
         <label className="label">Passengers<input name="pax" type="number" min={1} max={60} defaultValue={2} required className="field" /></label>
         <label className="label">{luggageLabel}<input name="bags" placeholder="e.g. 3 suitcases" className="field" /></label>
+        {cabinBags && (<label className="label col-span-2">Cabin Bags<input name="cabin" placeholder="e.g. 2" className="field" /></label>)}
         <label className="label col-span-2">Vehicle Preference
           <select name="veh" className="field">{vehicles.map((v) => <option key={v}>{v}</option>)}</select></label>
         {showNotes && (<label className="label col-span-2">Additional Notes
