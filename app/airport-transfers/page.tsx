@@ -8,11 +8,11 @@ import { SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/airport-transfers/`;
 const TITLE = "Airport-Connected Cross-Border Road Journeys | GCC Elite";
-const DESC = "Private road journeys that start or end at a GCC airport and cross an international border: arrive in one country, travel by road to another, or return to the airport from across the border.";
+const DESC = "Road journeys that start or end at a GCC airport and cross a border: arrive in one country and travel privately by road to the next.";
 export const metadata: Metadata = {
   title: { absolute: TITLE }, description: DESC, alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/oman-road.svg", width: 1600, height: 900, alt: "Highway at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/airport-transfers.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/airport-transfers.jpg"] },
 };
 
 const ROWS = [

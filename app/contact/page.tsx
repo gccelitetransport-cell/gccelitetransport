@@ -10,8 +10,8 @@ const TITLE = "Contact GCC Elite Transport | Request a Cross-Border Quote";
 const DESC = "Contact GCC Elite Transport on WhatsApp or phone to request a private cross-border transportation quote. Send your route, date, passengers and luggage.";
 export const metadata: Metadata = {
   title: { absolute: TITLE }, description: DESC, alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/contact.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/contact.jpg"] },
 };
 const INCLUDE = ["Where you start and where you finish, including the countries", "Your travel date and time, and a return if you need one", "How many people are traveling, and any children or elderly passengers", "Your luggage, large and cabin bags", "A vehicle preference, if you have one", "Your flight time, if an airport is involved"];
 const FAQS = [

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CountryRoutes } from "@/components/CountryRoutes";
 import { Vehicle } from "@/components/Art";
 import { Flag } from "@/components/Flag";
 import { CheckIcon, PlusIcon, WhatsAppIcon } from "@/components/Icons";
@@ -10,14 +11,14 @@ import { FLEET, SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/kuwait/`;
 const TITLE = "Kuwait Cross-Border Transport | Saudi Arabia Transfers";
-const DESC = "Private cross-border transportation between Kuwait and Saudi Arabia, with route-specific options for families, groups, business travellers and wider GCC road journeys.";
+const DESC = "Private cross-border transportation between Kuwait and Saudi Arabia for families, groups and business travellers, with route-specific planning.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/kuwait.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/kuwait.jpg"] },
 };
 
 const REQ = "Requirements vary according to nationality, residency, destination and vehicle arrangement. Confirm current requirements before travel.";
@@ -372,6 +373,8 @@ export default function KuwaitPage() {
           </div>
         </div>
       </section>
+
+      <CountryRoutes countryId="kuwait" name="Kuwait" />
 
       {/* Final CTA */}
       <section data-stage="2" className="relative overflow-hidden bg-navy py-16 text-center text-white sm:py-24">

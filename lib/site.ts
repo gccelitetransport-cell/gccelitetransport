@@ -128,3 +128,6 @@ export const LEGAL_UPDATED = "";
 
 // Google Search Console HTML-tag verification token (the "content" value only). Leave empty if verifying via DNS.
 export const GOOGLE_SITE_VERIFICATION = "tQmZATaGVnu9vEFUESYKIRD6IUeD9BgdwY1rFVUnmcc";
+
+// Cloudflare Web Analytics token (cookieless). Leave empty if Web Analytics is enabled automatically from the Cloudflare dashboard.
+export const CF_ANALYTICS_TOKEN = "";

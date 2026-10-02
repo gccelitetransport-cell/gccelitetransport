@@ -8,11 +8,11 @@ import { SITE } from "@/lib/site";
 
 const URL = `${SITE.url}/routes/`;
 const TITLE = "GCC Cross-Border Routes | International Route Explorer";
-const DESC = "Explore curated private cross-border road routes between cities across Saudi Arabia, the UAE, Bahrain, Oman and Jordan, with route-specific planning for passengers, vehicles and borders.";
+const DESC = "Curated private cross-border road routes between cities in Saudi Arabia, the UAE, Bahrain, Oman and Jordan, planned per route and border.";
 export const metadata: Metadata = {
   title: { absolute: TITLE }, description: DESC, alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/routes.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/routes.jpg"] },
 };
 
 export default function RoutesPage() {

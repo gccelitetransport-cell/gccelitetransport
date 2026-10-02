@@ -5,18 +5,19 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { Checklist, Directory, ExpandList, HeroMap, LuggageViz, MultiCountry, RouteFinder, Simulator } from "@/components/borders/BorderClient";
 import { MagneticLink, Reveal } from "@/components/kuwait/Motion";
 import { CORRIDORS } from "@/lib/borders";
+import { publishedRoutes } from "@/lib/routes";
 import { BORDER_GUIDES_REVIEWED_ON, SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/border-guides/`;
 const TITLE = "GCC Border Crossing Guides | GCC Elite Transport";
-const DESC = "GCC border crossing guides covering international road travel, documents, vehicle requirements, route planning and private cross-border transportation across Saudi Arabia, UAE, Bahrain, Qatar, Kuwait, Oman and Jordan.";
+const DESC = "GCC border crossing guides: documents, vehicle rules and route planning for road travel across Saudi Arabia, UAE, Bahrain, Qatar, Kuwait, Oman and Jordan.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/border-guides.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/border-guides.jpg"] },
 };
 
 const DISCLAIMER = "Border, immigration, customs, vehicle and entry requirements are determined by the relevant authorities and may change. GCC Elite Transport provides transportation and practical journey-planning information, but does not control border decisions or guarantee entry, clearance or processing times.";
@@ -171,6 +172,7 @@ export default function BorderGuidesPage() {
               <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-gold">{c.crossing}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">{c.summary}</p>
               <Link href={c.href} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-gold">Read the route page<ArrowIcon /></Link>
+              {publishedRoutes().filter((r) => r.corridorId === c.id).length > 0 && (<ul className="mt-3 flex flex-wrap gap-2 text-xs">{publishedRoutes().filter((r) => r.corridorId === c.id).map((r) => (<li key={r.slug}><Link href={`/routes/${r.slug}/`} className="inline-block rounded-full border border-slate-300 px-3 py-1 font-medium text-navy hover:border-gold">{r.from.city} → {r.to.city}</Link></li>))}</ul>)}
             </li>
           ))}
         </ul>

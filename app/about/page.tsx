@@ -9,11 +9,11 @@ import { SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/about/`;
 const TITLE = "About GCC Elite Transport | Private Cross-Border Transport";
-const DESC = "GCC Elite Transport arranges private international road transportation across the GCC and selected regional routes, planning each journey around its border, vehicle and passengers.";
+const DESC = "GCC Elite Transport arranges private cross-border road journeys across the GCC and Jordan, planned around each border, vehicle and passenger.";
 export const metadata: Metadata = {
   title: { absolute: TITLE }, description: DESC, alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/about.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/about.jpg"] },
 };
 const INDEX: [string, string][] = [["who", "Who we are"], ["do", "What we do"], ["how", "How a journey is arranged"], ["principles", "How we work"], ["coverage", "Where we operate"], ["verify", "Before you book"]];
 const PRINCIPLES = [

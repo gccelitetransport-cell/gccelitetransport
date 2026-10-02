@@ -5,7 +5,8 @@ import { SITE } from "@/lib/site";
 const URL = `${SITE.url}/terms/`;
 export const metadata: Metadata = {
   title: { absolute: "Terms & Conditions | GCC Elite Transport" }, description: "Terms for using the GCC Elite Transport website and requesting private cross-border road transportation.", alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: "Terms & Conditions | GCC Elite Transport", description: "Terms for using the GCC Elite Transport website and requesting private cross-border road transportation." },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: "Terms & Conditions | GCC Elite Transport", description: "Terms for using the GCC Elite Transport website and requesting private cross-border road transportation.", images: [{ url: "/og/legal.jpg", width: 1200, height: 630, alt: "Terms & Conditions | GCC Elite Transport" }] },
+  twitter: { card: "summary_large_image", title: "Terms & Conditions | GCC Elite Transport", description: "Terms for using the GCC Elite Transport website and requesting private cross-border road transportation.", images: ["/og/legal.jpg"] },
   robots: { index: true, follow: true },
 };
 const ld = { "@context": "https://schema.org", "@graph": [

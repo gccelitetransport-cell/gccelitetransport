@@ -5,7 +5,8 @@ import { SITE } from "@/lib/site";
 const URL = `${SITE.url}/cookie-policy/`;
 export const metadata: Metadata = {
   title: { absolute: "Cookie Policy | GCC Elite Transport" }, description: "What cookies and similar technologies gccelitetransport.com uses, and what happens when you follow links from it.", alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: "Cookie Policy | GCC Elite Transport", description: "What cookies and similar technologies gccelitetransport.com uses, and what happens when you follow links from it." },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: "Cookie Policy | GCC Elite Transport", description: "What cookies and similar technologies gccelitetransport.com uses, and what happens when you follow links from it.", images: [{ url: "/og/legal.jpg", width: 1200, height: 630, alt: "Cookie Policy | GCC Elite Transport" }] },
+  twitter: { card: "summary_large_image", title: "Cookie Policy | GCC Elite Transport", description: "What cookies and similar technologies gccelitetransport.com uses, and what happens when you follow links from it.", images: ["/og/legal.jpg"] },
   robots: { index: true, follow: true },
 };
 const ld = { "@context": "https://schema.org", "@graph": [

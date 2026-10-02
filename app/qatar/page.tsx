@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CountryRoutes } from "@/components/CountryRoutes";
 import { Vehicle } from "@/components/Art";
 import { Flag } from "@/components/Flag";
 import { CheckIcon, PlusIcon, WhatsAppIcon } from "@/components/Icons";
@@ -11,14 +12,14 @@ import { FLEET, SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/qatar/`;
 const TITLE = "Qatar Cross-Border Transport | Saudi Arabia Transfers";
-const DESC = "Private cross-border transportation between Qatar and Saudi Arabia via the Qatar–Saudi land corridor, with route-specific options for families, groups and business travellers.";
+const DESC = "Private cross-border transportation between Qatar and Saudi Arabia through Abu Samra and Salwa, for families, groups and business travellers.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/qatar.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/qatar.jpg"] },
 };
 
 const CHECK_REQ = "Check the current official entry requirements applicable to your nationality, residency and destination before travel.";
@@ -361,6 +362,8 @@ export default function QatarPage() {
           </div>
         </div>
       </section>
+
+      <CountryRoutes countryId="qatar" name="Qatar" />
 
       {/* Final CTA */}
       <section data-stage="3" className="relative overflow-hidden bg-navy py-16 text-center text-white sm:py-24">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CountryRoutes } from "@/components/CountryRoutes";
 import { Flag } from "@/components/Flag";
 import { CheckIcon, PlusIcon, WhatsAppIcon } from "@/components/Icons";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -8,7 +9,7 @@ import { SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/uae/`;
 const TITLE = "UAE Cross-Border Transport | Saudi & Oman Transfers";
-const DESC = "Private cross-border transportation between the UAE, Saudi Arabia and Oman, with route-specific options for families, groups, business travellers and GCC road journeys.";
+const DESC = "Private cross-border transportation between the UAE, Saudi Arabia and Oman for families, groups and business travellers on GCC road journeys.";
 const U_ROAD = "https://u.ae/en/information-and-services/passports-and-traveling/modes-of-travel/travelling-by-roadways";
 const U_TRANSPORT = "https://u.ae/en/information-and-services/transportation/roadways";
 
@@ -16,8 +17,8 @@ export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/uae-border-road.svg", width: 1600, height: 900, alt: "Desert highway leading to a border gantry at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/uae.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/uae.jpg"] },
 };
 
 const REQ = "Requirements vary by nationality, destination and vehicle arrangement. Confirm current requirements before travel.";
@@ -424,6 +425,8 @@ export default function UaePage() {
           </ul>
         </div>
       </section>
+
+      <CountryRoutes countryId="uae" name="UAE" />
 
       {/* Final */}
       <section className="bg-navy py-16 text-center text-white sm:py-24">

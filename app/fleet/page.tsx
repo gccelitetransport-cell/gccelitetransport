@@ -9,11 +9,11 @@ import { FLEET, SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/fleet/`;
 const TITLE = "Fleet for Cross-Border Journeys | GCC Elite Transport";
-const DESC = "Vehicle categories for private cross-border road journeys across the GCC: executive sedan, premium SUV, large SUV, van and minibus, chosen around passengers, luggage and the border route.";
+const DESC = "Sedan, SUV, large SUV, van and minibus for private cross-border road journeys across the GCC, chosen around passengers, luggage and route.";
 export const metadata: Metadata = {
   title: { absolute: TITLE }, description: DESC, alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/fleet.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/fleet.jpg"] },
 };
 
 const D = (id: string) => FLEET.find((f) => f.id === id)!;

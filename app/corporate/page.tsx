@@ -7,11 +7,11 @@ import { SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/corporate/`;
 const TITLE = "Corporate Cross-Border Transportation | GCC Elite Transport";
-const DESC = "Private corporate transportation across GCC borders: executive transfers, employee transport, multi-day schedules and recurring routes, planned around the route, vehicle and border requirements.";
+const DESC = "Corporate cross-border road transport across the GCC: executive transfers, team travel, multi-day schedules and recurring routes.";
 export const metadata: Metadata = {
   title: { absolute: TITLE }, description: DESC, alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/uae-border-road.svg", width: 1600, height: 900, alt: "Highway leading to a border gate" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/corporate.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/corporate.jpg"] },
 };
 
 const SERVICES = [

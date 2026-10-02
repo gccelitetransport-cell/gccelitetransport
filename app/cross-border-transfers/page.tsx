@@ -8,14 +8,14 @@ import { SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/cross-border-transfers/`;
 const TITLE = "GCC Cross-Border Transport | Private GCC Transfers";
-const DESC = "Private cross-border transportation across the GCC and selected regional routes. Request a private vehicle, route-specific quote and door-to-door travel options.";
+const DESC = "Private cross-border transportation across the GCC and selected regional routes. Request a private vehicle and a route-specific quote.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/gulf-highway.svg", width: 1600, height: 900, alt: "Highway at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/cross-border-transfers.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/cross-border-transfers.jpg"] },
 };
 
 /* ---------- content ---------- */

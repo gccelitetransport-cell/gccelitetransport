@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CountryRoutes } from "@/components/CountryRoutes";
 import { Flag } from "@/components/Flag";
 import { CheckIcon, PlusIcon, WhatsAppIcon } from "@/components/Icons";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -8,15 +9,15 @@ import { SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/bahrain/`;
 const TITLE = "Bahrain Cross-Border Transport | Saudi & GCC Transfers";
-const DESC = "Private cross-border transportation between Bahrain and Saudi Arabia via the King Fahd Causeway, with route-specific options for GCC journeys, families, groups and business travel.";
+const DESC = "Private cross-border transfers between Bahrain and Saudi Arabia via the King Fahd Causeway, for families, groups and business travellers.";
 const MTT_NEWS = "https://www.mtt.gov.bh/news/transportation-ministry-announces-licensed-taxis-permitted-transport-passengers-king-fahd";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/king-fahd-causeway.svg", width: 1600, height: 900, alt: "A causeway road across the sea at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/bahrain.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/bahrain.jpg"] },
 };
 
 const VERIFY = "Border, visa, immigration, customs and vehicle requirements can change. Verify current requirements with the relevant authorities before travel.";
@@ -379,6 +380,8 @@ export default function BahrainPage() {
           </div>
         </div>
       </section>
+
+      <CountryRoutes countryId="bahrain" name="Bahrain" />
 
       {/* Final CTA */}
       <section className="bg-navy py-16 text-center text-white sm:py-24">

@@ -47,7 +47,7 @@ export const ROUTES: Route[] = [
     from: C.makkah, to: C.dubai, corridorId: "ae-sa", borderLabel: "Saudi Arabia ↔ UAE", borderNode: [51.6, 24.3],
     eyebrow: "Saudi Arabia → UAE", h1: "Makkah to Dubai Cross-Border Transportation",
     metaTitle: "Makkah to Dubai Cross-Border Transport | GCC Elite Transport",
-    metaDesc: "Private cross-border transportation from Makkah to Dubai with route planning, vehicle options, border considerations and one-way or return journey arrangements.",
+    metaDesc: "Private cross-border transportation from Makkah to Dubai, with route planning, vehicle options, border considerations and one-way or return journeys.",
     hero: "Private international road transportation from Makkah to Dubai, with route-specific planning for passengers, luggage, vehicle requirements and border procedures.",
     angle: "Saudi Arabia to UAE long-distance international road journey",
     intro: [

@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params; const r = getRoute(slug); if (!r) return {};
   const url = `${SITE.url}/routes/${r.slug}/`;
   return { title: { absolute: r.metaTitle }, description: r.metaDesc, alternates: { canonical: url },
-    openGraph: { type: "website", url, siteName: SITE.name, title: r.metaTitle, description: r.metaDesc, images: [{ url: OG[r.variant], width: 1600, height: 900, alt: `Road journey from ${r.from.city} to ${r.to.city}` }] },
-    twitter: { card: "summary_large_image", title: r.metaTitle, description: r.metaDesc } };
+    openGraph: { type: "website", url, siteName: SITE.name, title: r.metaTitle, description: r.metaDesc, images: [{ url: `/og/route-${r.slug}.jpg`, width: 1200, height: 630, alt: r.metaTitle }] },
+    twitter: { card: "summary_large_image", title: r.metaTitle, description: r.metaDesc, images: [`/og/route-${r.slug}.jpg`] } };
 }
 
 const H2 = ({ children }: { children: React.ReactNode }) => <h2 className="h2">{children}</h2>;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CountryRoutes } from "@/components/CountryRoutes";
 import { Vehicle } from "@/components/Art";
 import { Flag } from "@/components/Flag";
 import { CheckIcon, PlusIcon, WhatsAppIcon } from "@/components/Icons";
@@ -13,14 +14,14 @@ import { FLEET, SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/jordan/`;
 const TITLE = "Jordan Cross-Border Transport | Saudi Arabia Transfers";
-const DESC = "Private cross-border transportation between Jordan and Saudi Arabia, with route-specific options for families, groups, business travellers and long-distance regional road journeys.";
+const DESC = "Private cross-border transportation between Jordan and Saudi Arabia for families, groups and business travellers on long regional road journeys.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/jordan-saudi-road.svg", width: 1600, height: 900, alt: "Desert highway at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/jordan.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/jordan.jpg"] },
 };
 
 const REQ = "Requirements can vary by nationality, residency, destination and vehicle arrangement. Confirm current requirements with the relevant authorities before travel.";
@@ -365,6 +366,8 @@ export default function JordanPage() {
           </div>
         </div>
       </section>
+
+      <CountryRoutes countryId="jordan" name="Jordan" />
 
       {/* Final */}
       <section data-stage="3" className="relative isolate overflow-hidden bg-navy py-16 text-center text-white sm:py-24">

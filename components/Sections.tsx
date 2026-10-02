@@ -3,6 +3,7 @@ import {
   BOOKING, CORPORATE_FOR, CORPORATE_SERVICES, COUNTRIES, DISCLAIMER, FAQS, FLEET, GUIDES, ROUTES, SERVICES, STEPS, WHY, waLink,
 } from "@/lib/site";
 import { CountryScene, HeroScene, Vehicle } from "./Art";
+import { publishedRoutes } from "@/lib/routes";
 import { Flag } from "./Flag";
 import { ArrowIcon, CheckIcon, PlusIcon, WhatsAppIcon } from "./Icons";
 import { QuoteForm } from "./QuoteForm";
@@ -119,6 +120,12 @@ export function Routes() {
             </li>
           ))}
         </ul>
+        <div className="mt-8">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-gold">City-to-city route pages</h3>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {publishedRoutes().map((r) => (<li key={r.slug}><Link href={`/routes/${r.slug}/`} className="inline-block rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-navy hover:border-gold">{r.from.city} to {r.to.city}</Link></li>))}
+          </ul>
+        </div>
       </div>
     </section>
   );

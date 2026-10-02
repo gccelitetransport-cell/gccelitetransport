@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CountryRoutes } from "@/components/CountryRoutes";
 import { Flag } from "@/components/Flag";
 import { ArrowIcon, CheckIcon, PlusIcon, WhatsAppIcon } from "@/components/Icons";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -8,14 +9,14 @@ import { SITE, waLink } from "@/lib/site";
 
 const URL = `${SITE.url}/saudi-arabia/`;
 const TITLE = "Saudi Arabia Cross-Border Transport | GCC & Jordan Transfers";
-const DESC = "Private cross-border transportation to and from Saudi Arabia, connecting Bahrain, UAE, Qatar, Kuwait, Oman and Jordan. Route-specific vehicles, border coordination and private transfers.";
+const DESC = "Private cross-border transportation to and from Saudi Arabia, connecting Bahrain, UAE, Qatar, Kuwait, Oman and Jordan by road.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: URL },
-  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/images/saudi-border-road.svg", width: 1600, height: 900, alt: "Highway approaching a border gate at sunset" }] },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC },
+  openGraph: { type: "website", url: URL, siteName: SITE.name, title: TITLE, description: DESC, images: [{ url: "/og/saudi-arabia.jpg", width: 1200, height: 630, alt: TITLE }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og/saudi-arabia.jpg"] },
 };
 
 const VERIFY = "Requirements may vary and should be verified with the relevant authority before travel.";
@@ -443,6 +444,8 @@ export default function SaudiArabiaPage() {
           </div>
         </div>
       </section>
+
+      <CountryRoutes countryId="saudi-arabia" name="Saudi Arabia" />
 
       {/* Final CTA */}
       <section className="bg-navy py-16 text-center text-white sm:py-24">

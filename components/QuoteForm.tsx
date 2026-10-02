@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { waLink } from "@/lib/site";
+import { track } from "@/lib/track";
 
 const COUNTRIES = ["Saudi Arabia", "Bahrain", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan", "Other"];
 const VEHICLES = ["No preference", "Executive Sedan", "Premium SUV", "Large SUV", "Premium Van", "Minibus"];
@@ -25,6 +26,7 @@ export function QuoteForm({ id = "quote", compact = false, title = "Plan Your GC
       `Vehicle: ${g("veh")}`,
       ...(showNotes ? [`Notes: ${g("notes")}`] : []),
     ].join("\n");
+    track("quote_form_submit", { page: window.location.pathname, from: String(f.get("pc") ?? ""), to: String(f.get("dc") ?? "") });
     window.open(waLink(msg), "_blank", "noopener");
     setSent(true);
   }
